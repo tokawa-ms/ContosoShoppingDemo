@@ -3,14 +3,14 @@
 import Link from 'next/link';
 import { useState } from 'react';
 import { useCart } from '@/contexts/CartContext';
+import { useAuth } from '@/contexts/AuthContext';
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   
   const { itemCount } = useCart();
-  // Mock auth state - will be replaced with actual auth state later
-  const isLoggedIn = false;
+  const { isLoggedIn, user, logout } = useAuth();
 
   return (
     <header className="bg-white shadow-md sticky top-0 z-50">
@@ -119,7 +119,10 @@ export default function Header() {
                   <Link href="/orders" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
                     注文履歴
                   </Link>
-                  <button className="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                  <button 
+                    onClick={logout}
+                    className="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                  >
                     ログアウト
                   </button>
                 </div>
