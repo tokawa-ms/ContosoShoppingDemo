@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { mockProducts, categories, getProductsByCategory, searchProducts, sortProducts } from '@/lib/products';
 import { Product } from '@/types';
 import { useCart } from '@/contexts/CartContext';
@@ -137,6 +138,7 @@ export default function ProductsPage() {
                   value={sortBy}
                   onChange={(e) => setSortBy(e.target.value as SortOption)}
                   className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+                  title="並び順を選択"
                 >
                   <option value="newest">新着順</option>
                   <option value="name">名前順</option>
@@ -163,6 +165,7 @@ export default function ProductsPage() {
                   value={selectedCategory}
                   onChange={(e) => setSelectedCategory(e.target.value)}
                   className="px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+                  title="カテゴリを選択"
                 >
                   <option value="">すべてのカテゴリ</option>
                   {categories.map((category) => (
@@ -175,6 +178,7 @@ export default function ProductsPage() {
                   value={sortBy}
                   onChange={(e) => setSortBy(e.target.value as SortOption)}
                   className="px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+                  title="並び順を選択"
                 >
                   <option value="newest">新着順</option>
                   <option value="name">名前順</option>
@@ -216,9 +220,13 @@ export default function ProductsPage() {
                     <div key={product.id} className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
                       <Link href={`/products/${product.id}`}>
                         <div className="aspect-w-1 aspect-h-1 bg-gray-200">
-                          <div className="w-full h-48 bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center">
-                            <span className="text-gray-400 text-sm">商品画像</span>
-                          </div>
+                          <Image
+                            src={product.images[0]}
+                            alt={product.name}
+                            width={300}
+                            height={300}
+                            className="w-full h-48 object-cover"
+                          />
                         </div>
                       </Link>
                       <div className="p-4">

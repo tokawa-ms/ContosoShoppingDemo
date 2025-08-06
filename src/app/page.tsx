@@ -1,6 +1,7 @@
 'use client';
 
 import Link from "next/link";
+import Image from "next/image";
 import { mockProducts, categories } from "@/lib/products";
 import { useCart } from "@/contexts/CartContext";
 
@@ -51,9 +52,13 @@ export default function Home() {
             {featuredProducts.map((product) => (
               <div key={product.id} className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
                 <div className="aspect-w-1 aspect-h-1 bg-gray-200">
-                  <div className="w-full h-48 bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center">
-                    <span className="text-gray-400 text-sm">商品画像</span>
-                  </div>
+                  <Image
+                    src={product.images[0]}
+                    alt={product.name}
+                    width={300}
+                    height={300}
+                    className="w-full h-48 object-cover"
+                  />
                 </div>
                 <div className="p-4">
                   <h3 className="font-semibold text-lg mb-2">{product.name}</h3>
@@ -117,9 +122,13 @@ export default function Home() {
             {newestProducts.map((product) => (
               <div key={product.id} className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
                 <div className="aspect-w-1 aspect-h-1 bg-gray-200">
-                  <div className="w-full h-48 bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center">
-                    <span className="text-gray-400 text-sm">商品画像</span>
-                  </div>
+                  <Image
+                    src={product.images[0]}
+                    alt={product.name}
+                    width={300}
+                    height={300}
+                    className="w-full h-48 object-cover"
+                  />
                 </div>
                 <div className="p-4">
                   <span className="inline-block bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full mb-2">

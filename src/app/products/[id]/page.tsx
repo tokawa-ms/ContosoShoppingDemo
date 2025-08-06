@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { useParams } from 'next/navigation';
 import Link from 'next/link';
+import Image from 'next/image';
 import { getProductById, mockProducts } from '@/lib/products';
 import { useCart } from '@/contexts/CartContext';
 
@@ -82,12 +83,16 @@ export default function ProductDetailPage() {
             {/* Product Images */}
             <div className="p-6">
               <div className="aspect-w-1 aspect-h-1 mb-4">
-                <div className="w-full h-96 bg-gradient-to-br from-gray-100 to-gray-200 rounded-lg flex items-center justify-center">
-                  <span className="text-gray-400 text-lg">商品画像</span>
-                </div>
+                <Image
+                  src={product.images[0]}
+                  alt={product.name}
+                  width={600}
+                  height={600}
+                  className="w-full h-96 object-cover rounded-lg"
+                />
               </div>
               
-              {/* Thumbnail images - placeholder for future implementation */}
+              {/* Thumbnail images - show same image for now */}
               <div className="grid grid-cols-4 gap-2">
                 {[...Array(4)].map((_, index) => (
                   <button
@@ -96,10 +101,15 @@ export default function ProductDetailPage() {
                     className={`aspect-w-1 aspect-h-1 rounded-lg overflow-hidden ${
                       selectedImage === index ? 'ring-2 ring-primary-500' : ''
                     }`}
+                    title={`商品画像 ${index + 1}`}
                   >
-                    <div className="w-full h-20 bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center">
-                      <span className="text-gray-400 text-xs">画像{index + 1}</span>
-                    </div>
+                    <Image
+                      src={product.images[0]}
+                      alt={`${product.name} 画像 ${index + 1}`}
+                      width={100}
+                      height={100}
+                      className="w-full h-20 object-cover"
+                    />
                   </button>
                 ))}
               </div>
@@ -151,6 +161,8 @@ export default function ProductDetailPage() {
                         onClick={() => handleQuantityChange(-1)}
                         disabled={quantity <= 1}
                         className="w-10 h-10 rounded-full border border-gray-300 flex items-center justify-center hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed"
+                        title="数量を減らす"
+                        aria-label="数量を減らす"
                       >
                         <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20 12H4" />
@@ -163,6 +175,8 @@ export default function ProductDetailPage() {
                         onClick={() => handleQuantityChange(1)}
                         disabled={quantity >= product.stock}
                         className="w-10 h-10 rounded-full border border-gray-300 flex items-center justify-center hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed"
+                        title="数量を増やす"
+                        aria-label="数量を増やす"
                       >
                         <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
@@ -218,9 +232,13 @@ export default function ProductDetailPage() {
                 <div key={relatedProduct.id} className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
                   <Link href={`/products/${relatedProduct.id}`}>
                     <div className="aspect-w-1 aspect-h-1 bg-gray-200">
-                      <div className="w-full h-48 bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center">
-                        <span className="text-gray-400 text-sm">商品画像</span>
-                      </div>
+                      <Image
+                        src={relatedProduct.images[0]}
+                        alt={relatedProduct.name}
+                        width={300}
+                        height={300}
+                        className="w-full h-48 object-cover"
+                      />
                     </div>
                   </Link>
                   <div className="p-4">
