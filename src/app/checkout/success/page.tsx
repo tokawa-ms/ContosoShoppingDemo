@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import Link from 'next/link';
 import { useAuth } from '@/contexts/AuthContext';
 import { useRouter } from 'next/navigation';
@@ -10,9 +10,12 @@ export default function CheckoutSuccessPage() {
   const { isLoggedIn } = useAuth();
   const router = useRouter();
   const [orderData, setOrderData] = useState<Order | null>(null);
+  const hasLoadedOrder = useRef(false);
 
-  // Load order data from localStorage
+  // Load order data from localStorage (only once)
   useEffect(() => {
+    if (hasLoadedOrder.current) return;
+    
     try {
       const storedOrder = localStorage.getItem('latestOrder');
       if (storedOrder) {
@@ -23,6 +26,7 @@ export default function CheckoutSuccessPage() {
         setOrderData(parsedOrder);
         // Clear the stored order data after loading it
         localStorage.removeItem('latestOrder');
+        hasLoadedOrder.current = true;
       } else {
         // If no order data, redirect to home
         router.push('/');
@@ -31,7 +35,7 @@ export default function CheckoutSuccessPage() {
       console.error('Failed to load order data:', error);
       router.push('/');
     }
-  }, [router]);
+  }, []);
 
   // Redirect if not logged in
   useEffect(() => {
