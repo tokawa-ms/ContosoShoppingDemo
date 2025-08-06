@@ -8,9 +8,10 @@ import { useAuth } from '@/contexts/AuthContext';
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const [isCategoryDropdownOpen, setIsCategoryDropdownOpen] = useState(false);
   
   const { itemCount } = useCart();
-  const { isLoggedIn, user, logout } = useAuth();
+  const { isLoggedIn, logout } = useAuth();
 
   return (
     <header className="bg-white shadow-md sticky top-0 z-50">
@@ -40,27 +41,37 @@ export default function Header() {
             <Link href="/products" className="text-gray-700 hover:text-primary-600 px-3 py-2 text-sm font-medium">
               商品一覧
             </Link>
-            <div className="relative group">
-              <button className="text-gray-700 hover:text-primary-600 px-3 py-2 text-sm font-medium">
+            <div className="relative">
+              <button 
+                className="text-gray-700 hover:text-primary-600 px-3 py-2 text-sm font-medium"
+                onMouseEnter={() => setIsCategoryDropdownOpen(true)}
+                onMouseLeave={() => setIsCategoryDropdownOpen(false)}
+              >
                 カテゴリ
               </button>
-              <div className="absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 invisible group-hover:visible">
-                <Link href="/products?category=エレクトロニクス" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
-                  エレクトロニクス
-                </Link>
-                <Link href="/products?category=ファッション" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
-                  ファッション
-                </Link>
-                <Link href="/products?category=ホーム&ガーデン" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
-                  ホーム&ガーデン
-                </Link>
-                <Link href="/products?category=スポーツ" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
-                  スポーツ
-                </Link>
-                <Link href="/products?category=書籍" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
-                  書籍
-                </Link>
-              </div>
+              {isCategoryDropdownOpen && (
+                <div 
+                  className="absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1"
+                  onMouseEnter={() => setIsCategoryDropdownOpen(true)}
+                  onMouseLeave={() => setIsCategoryDropdownOpen(false)}
+                >
+                  <Link href="/products?category=エレクトロニクス" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                    エレクトロニクス
+                  </Link>
+                  <Link href="/products?category=ファッション" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                    ファッション
+                  </Link>
+                  <Link href="/products?category=ホーム&ガーデン" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                    ホーム&ガーデン
+                  </Link>
+                  <Link href="/products?category=スポーツ" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                    スポーツ
+                  </Link>
+                  <Link href="/products?category=書籍" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                    書籍
+                  </Link>
+                </div>
+              )}
             </div>
           </nav>
 
