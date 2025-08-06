@@ -5,7 +5,7 @@ import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { useCart } from '@/contexts/CartContext';
 import { useAuth } from '@/contexts/AuthContext';
-import { Address } from '@/types';
+import { Address, Order, OrderItem } from '@/types';
 
 export default function CheckoutPage() {
   const { getCartItems, total, itemCount, clearCart } = useCart();
@@ -84,6 +84,26 @@ export default function CheckoutPage() {
     try {
       // Simulate payment processing
       await new Promise(resolve => setTimeout(resolve, 2000));
+
+      // Create order data before clearing cart
+      const orderData: Order = {
+        id: Math.random().toString(36).substr(2, 9).toUpperCase(),
+        userId: user?.id || '',
+        items: cartItems.map((item): OrderItem => ({
+          productId: item.productId,
+          productName: item.product.name,
+          price: item.product.price,
+          quantity: item.quantity,
+        })),
+        totalAmount: total,
+        shippingAddress,
+        status: 'confirmed',
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      };
+
+      // Store order data in localStorage for the success page
+      localStorage.setItem('latestOrder', JSON.stringify(orderData));
 
       // Clear cart
       clearCart();
