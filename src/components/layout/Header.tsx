@@ -41,19 +41,19 @@ export default function Header() {
             <Link href="/products" className="text-gray-700 hover:text-primary-600 px-3 py-2 text-sm font-medium">
               商品一覧
             </Link>
-            <div className="relative">
+            <div 
+              className="relative"
+              onMouseEnter={() => setIsCategoryDropdownOpen(true)}
+              onMouseLeave={() => setIsCategoryDropdownOpen(false)}
+            >
               <button 
                 className="text-gray-700 hover:text-primary-600 px-3 py-2 text-sm font-medium"
-                onMouseEnter={() => setIsCategoryDropdownOpen(true)}
-                onMouseLeave={() => setIsCategoryDropdownOpen(false)}
               >
                 カテゴリ
               </button>
               {isCategoryDropdownOpen && (
                 <div 
-                  className="absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1"
-                  onMouseEnter={() => setIsCategoryDropdownOpen(true)}
-                  onMouseLeave={() => setIsCategoryDropdownOpen(false)}
+                  className="absolute left-0 top-full w-48 bg-white rounded-md shadow-lg py-1 z-10 pt-2"
                 >
                   <Link href="/products?category=エレクトロニクス" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
                     エレクトロニクス
