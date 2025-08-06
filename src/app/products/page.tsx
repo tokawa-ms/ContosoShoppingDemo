@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { mockProducts, categories, getProductsByCategory, searchProducts, sortProducts } from '@/lib/products';
 import { Product } from '@/types';
+import { useCart } from '@/contexts/CartContext';
 
 type SortOption = 'name' | 'price-asc' | 'price-desc' | 'newest';
 
@@ -14,6 +15,7 @@ export default function ProductsPage() {
   const [sortBy, setSortBy] = useState<SortOption>('newest');
   const [currentPage, setCurrentPage] = useState(1);
   const [isLoading, setIsLoading] = useState(false);
+  const { addItem } = useCart();
 
   const productsPerPage = 12;
 
@@ -49,8 +51,11 @@ export default function ProductsPage() {
   const currentProducts = filteredProducts.slice(startIndex, endIndex);
 
   const handleAddToCart = (productId: string) => {
-    // TODO: Implement cart functionality
-    console.log('Add to cart:', productId);
+    addItem(productId, 1);
+    const product = filteredProducts.find(p => p.id === productId);
+    if (product) {
+      alert(`${product.name} をカートに追加しました！`);
+    }
   };
 
   return (

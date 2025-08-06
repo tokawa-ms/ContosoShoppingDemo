@@ -1,5 +1,8 @@
+'use client';
+
 import Link from "next/link";
 import { mockProducts, categories } from "@/lib/products";
+import { useCart } from "@/contexts/CartContext";
 
 export default function Home() {
   // Get featured products (first 4 products)
@@ -7,6 +10,16 @@ export default function Home() {
   
   // Get newest products (last 8 products)
   const newestProducts = mockProducts.slice(-8);
+
+  const { addItem } = useCart();
+
+  const handleAddToCart = (productId: string) => {
+    addItem(productId, 1);
+    const product = mockProducts.find(p => p.id === productId);
+    if (product) {
+      alert(`${product.name} をカートに追加しました！`);
+    }
+  };
 
   return (
     <div className="min-h-screen">
@@ -117,7 +130,10 @@ export default function Home() {
                     <span className="text-xl font-bold text-primary-600">
                       ¥{product.price.toLocaleString()}
                     </span>
-                    <button className="bg-primary-600 text-white px-3 py-1 rounded text-sm hover:bg-primary-700 transition-colors">
+                    <button 
+                      onClick={() => handleAddToCart(product.id)}
+                      className="bg-primary-600 text-white px-3 py-1 rounded text-sm hover:bg-primary-700 transition-colors"
+                    >
                       カートに追加
                     </button>
                   </div>
