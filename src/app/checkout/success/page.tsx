@@ -1,13 +1,37 @@
 'use client';
 
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { useAuth } from '@/contexts/AuthContext';
 import { useRouter } from 'next/navigation';
+import { Order } from '@/types';
 
 export default function CheckoutSuccessPage() {
   const { isLoggedIn } = useAuth();
   const router = useRouter();
+  const [orderData, setOrderData] = useState<Order | null>(null);
+
+  // Load order data from localStorage
+  useEffect(() => {
+    try {
+      const storedOrder = localStorage.getItem('latestOrder');
+      if (storedOrder) {
+        const parsedOrder = JSON.parse(storedOrder);
+        // Convert date strings back to Date objects
+        parsedOrder.createdAt = new Date(parsedOrder.createdAt);
+        parsedOrder.updatedAt = new Date(parsedOrder.updatedAt);
+        setOrderData(parsedOrder);
+        // Clear the stored order data after loading it
+        localStorage.removeItem('latestOrder');
+      } else {
+        // If no order data, redirect to home
+        router.push('/');
+      }
+    } catch (error) {
+      console.error('Failed to load order data:', error);
+      router.push('/');
+    }
+  }, [router]);
 
   // Redirect if not logged in
   useEffect(() => {
@@ -16,7 +40,7 @@ export default function CheckoutSuccessPage() {
     }
   }, [isLoggedIn, router]);
 
-  if (!isLoggedIn) {
+  if (!isLoggedIn || !orderData) {
     return null; // Will redirect
   }
 
@@ -45,15 +69,15 @@ export default function CheckoutSuccessPage() {
             <div className="bg-gray-50 rounded-lg p-6 mb-8 text-left">
               <h2 className="text-lg font-semibold text-gray-900 mb-4">注文詳細</h2>
               
-              <div className="space-y-2 text-sm">
+              <div className="space-y-2 text-sm mb-4">
                 <div className="flex justify-between">
                   <span className="text-gray-600">注文番号:</span>
-                  <span className="font-medium">#{Math.random().toString(36).substr(2, 9).toUpperCase()}</span>
+                  <span className="font-medium">#{orderData.id}</span>
                 </div>
                 
                 <div className="flex justify-between">
                   <span className="text-gray-600">注文日時:</span>
-                  <span className="font-medium">{new Date().toLocaleString('ja-JP')}</span>
+                  <span className="font-medium">{orderData.createdAt.toLocaleString('ja-JP')}</span>
                 </div>
                 
                 <div className="flex justify-between">
@@ -64,6 +88,51 @@ export default function CheckoutSuccessPage() {
                 <div className="flex justify-between">
                   <span className="text-gray-600">配送方法:</span>
                   <span className="font-medium">通常配送（無料）</span>
+                </div>
+              </div>
+
+              {/* Order Items */}
+              <div className="border-t border-gray-200 pt-4">
+                <h3 className="font-medium text-gray-900 mb-3">注文商品</h3>
+                <div className="space-y-3">
+                  {orderData.items.map((item, index) => (
+                    <div key={index} className="flex justify-between items-center py-2 border-b border-gray-100 last:border-b-0">
+                      <div className="flex-1">
+                        <div className="font-medium text-gray-900">{item.productName}</div>
+                        <div className="text-sm text-gray-600">
+                          ¥{item.price.toLocaleString()} × {item.quantity}個
+                        </div>
+                      </div>
+                      <div className="font-medium text-gray-900">
+                        ¥{(item.price * item.quantity).toLocaleString()}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+                
+                <div className="border-t border-gray-200 pt-3 mt-4">
+                  <div className="flex justify-between items-center">
+                    <span className="text-lg font-semibold text-gray-900">合計金額:</span>
+                    <span className="text-xl font-bold text-primary-600">
+                      ¥{orderData.totalAmount.toLocaleString()}
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Shipping Address */}
+              <div className="border-t border-gray-200 pt-4 mt-4">
+                <h3 className="font-medium text-gray-900 mb-2">配送先住所</h3>
+                <div className="text-sm text-gray-700">
+                  <div>〒{orderData.shippingAddress.zipCode}</div>
+                  <div>
+                    {orderData.shippingAddress.prefecture} {orderData.shippingAddress.city}
+                  </div>
+                  <div>{orderData.shippingAddress.addressLine1}</div>
+                  {orderData.shippingAddress.addressLine2 && (
+                    <div>{orderData.shippingAddress.addressLine2}</div>
+                  )}
+                  <div>電話番号: {orderData.shippingAddress.phone}</div>
                 </div>
               </div>
             </div>
