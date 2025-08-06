@@ -7,8 +7,8 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Company Info */}
           <div className="col-span-1 md:col-span-2">
-            <h2 className="text-2xl font-bold mb-4">Next Shop Demo</h2>
-            <p className="text-gray-300 mb-4">
+            <h2 className="text-2xl font-bold mb-4">Contoso Shop Demo</h2>
+            <p className="text-gray-300 mb-4">`
               Next.js 15とモダンWeb技術を活用したショッピングカートデモアプリケーション。
               最新のEコマース機能を体験できます。
             </p>
@@ -101,7 +101,7 @@ export default function Footer() {
               </Link>
             </div>
             <div className="text-gray-300 text-sm">
-              © 2024 Next Shop Demo. All rights reserved.
+              © 2024 Contoso Shop Demo. All rights reserved.
             </div>
           </div>
         </div>

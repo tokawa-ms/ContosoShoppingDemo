@@ -6,7 +6,7 @@ import { CartProvider } from "@/contexts/CartContext";
 import { AuthProvider } from "@/contexts/AuthContext";
 
 export const metadata: Metadata = {
-  title: "Next Shop Demo",
+  title: "Contoso Shop Demo",
   description: "Modern shopping cart demo application built with Next.js 15",
 };
 
