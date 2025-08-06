@@ -12,7 +12,7 @@ export default function CheckoutSuccessPage() {
   // Redirect if not logged in
   useEffect(() => {
     if (!isLoggedIn) {
-      router.push('/login');
+      router.push('/login?returnUrl=/checkout/success');
     }
   }, [isLoggedIn, router]);
 

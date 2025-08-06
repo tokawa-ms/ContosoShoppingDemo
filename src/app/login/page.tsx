@@ -1,30 +1,32 @@
 'use client';
 
-import { useState, useEffect } from 'react';
-import { useRouter } from 'next/navigation';
+import { useState, useEffect, Suspense } from 'react';
+import { useRouter, useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import { useAuth } from '@/contexts/AuthContext';
 import { getValidCredentials } from '@/lib/auth';
 
-export default function LoginPage() {
+function LoginForm() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showCredentials, setShowCredentials] = useState(false);
   const { login, isLoading, error, isLoggedIn } = useAuth();
   const router = useRouter();
+  const searchParams = useSearchParams();
+  const returnUrl = searchParams.get('returnUrl') || '/';
 
   // Redirect if already logged in
   useEffect(() => {
     if (isLoggedIn) {
-      router.push('/');
+      router.push(returnUrl);
     }
-  }, [isLoggedIn, router]);
+  }, [isLoggedIn, router, returnUrl]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     const success = await login({ email, password });
     if (success) {
-      router.push('/');
+      router.push(returnUrl);
     }
   };
 
@@ -180,5 +182,13 @@ export default function LoginPage() {
         </div>
       </div>
     </div>
+  );
+}
+
+export default function LoginPage() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <LoginForm />
+    </Suspense>
   );
 }
