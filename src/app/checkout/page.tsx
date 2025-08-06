@@ -34,7 +34,7 @@ export default function CheckoutPage() {
   // Redirect if not logged in or cart is empty
   useEffect(() => {
     if (!isLoggedIn) {
-      router.push('/login');
+      router.push('/login?returnUrl=/checkout');
     } else if (cartItems.length === 0) {
       router.push('/cart');
     }
