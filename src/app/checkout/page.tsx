@@ -31,14 +31,14 @@ export default function CheckoutPage() {
   const [isProcessing, setIsProcessing] = useState(false);
   const [errors, setErrors] = useState<{[key: string]: string}>({});
 
-  // Redirect if not logged in or cart is empty
+  // Redirect if not logged in or cart is empty (but not during processing)
   useEffect(() => {
     if (!isLoggedIn) {
       router.push('/login?returnUrl=/checkout');
-    } else if (cartItems.length === 0) {
+    } else if (cartItems.length === 0 && !isProcessing) {
       router.push('/cart');
     }
-  }, [isLoggedIn, cartItems.length, router]);
+  }, [isLoggedIn, cartItems.length, isProcessing, router]);
 
   // Pre-fill form with user data
   useEffect(() => {
