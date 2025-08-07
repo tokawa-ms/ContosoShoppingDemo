@@ -1,11 +1,11 @@
 # ディレクトリ構成
 
-このドキュメントでは、Next Shop Demo プロジェクトのディレクトリ構成とファイル配置について説明します。
+このドキュメントでは、Contoso Shopping Demo プロジェクトのディレクトリ構成とファイル配置について説明します。
 
 ## プロジェクト全体構成
 
 ```
-nextshopdemo/
+ContosoShoppingDemo/
 ├── .git/                    # Git バージョン管理
 ├── .next/                   # Next.js ビルド出力（自動生成）
 ├── node_modules/            # npm 依存関係（自動生成）
@@ -170,7 +170,7 @@ specs/
 ### package.json
 ```json
 {
-  "name": "nextshopdemo",
+  "name": "contoso-shopping-demo",
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build", 

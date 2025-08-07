@@ -2,7 +2,7 @@
 
 ## プロジェクト名
 
-Next Shop Demo
+Contoso Shopping Demo
 
 ## 目的
 
