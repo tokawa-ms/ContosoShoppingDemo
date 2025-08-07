@@ -1,11 +1,11 @@
 # コントリビューションガイド
 
-Next Shop Demo プロジェクトへのコントリビューションを歓迎します！このガイドでは、プロジェクトに貢献する方法を説明します。
+Contoso Shopping Demo プロジェクトへのコントリビューションを歓迎します！このガイドでは、プロジェクトに貢献する方法を説明します。
 
 ## はじめに
 
 ### プロジェクトの目的
-Next Shop Demo は、最新の Web 技術を使用したモダンな E コマースアプリケーションのデモンストレーションです。学習目的と技術検証を主な目的としています。
+Contoso Shopping Demo は、最新の Web 技術を使用したモダンな E コマースアプリケーションのデモンストレーションです。学習目的と技術検証を主な目的としています。
 
 ### コントリビューションの種類
 以下のような貢献を歓迎します：
@@ -28,8 +28,8 @@ Next Shop Demo は、最新の Web 技術を使用したモダンな E コマー
 1. **リポジトリのフォーク**
    ```bash
    # GitHub でリポジトリをフォーク
-   git clone https://github.com/YOUR_USERNAME/nextshopdemo.git
-   cd nextshopdemo
+   git clone https://github.com/YOUR_USERNAME/ContosoShoppingDemo.git
+   cd ContosoShoppingDemo
    ```
 
 2. **依存関係のインストール**
@@ -410,12 +410,12 @@ git push origin main --tags
 質問がある場合は、以下の順序で確認してください：
 
 1. [ドキュメント](./README.md) を確認
-2. [既存の Issues](https://github.com/tokawa-ms/nextshopdemo/issues) を検索
+2. [既存の Issues](https://github.com/tokawa-ms/ContosoShoppingDemo/issues) を検索
 3. 新しい Issue を作成
 
 ## 認識
 
-すべてのコントリビューターは [Contributors](https://github.com/tokawa-ms/nextshopdemo/graphs/contributors) ページで認識されます。
+すべてのコントリビューターは [Contributors](https://github.com/tokawa-ms/ContosoShoppingDemo/graphs/contributors) ページで認識されます。
 
 ---
 

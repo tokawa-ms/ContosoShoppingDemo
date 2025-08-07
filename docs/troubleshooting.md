@@ -1,6 +1,6 @@
 # トラブルシューティング
 
-Next Shop Demo の開発・運用中によく発生する問題と解決方法をまとめました。
+Contoso Shopping Demo の開発・運用中によく発生する問題と解決方法をまとめました。
 
 ## 開発環境の問題
 
@@ -217,14 +217,14 @@ console.log('Auth error:', error)
 
 // 2. ネットワークタブでリクエストを確認
 // 3. localStorage をクリア
-localStorage.removeItem('nextshopdemo_auth_user')
+localStorage.removeItem('contososhoppingdemo_auth_user')
 ```
 
 #### 問題: ログイン状態が保持されない
 **解決方法:**
 ```typescript
 // 1. localStorage の確認
-console.log(localStorage.getItem('nextshopdemo_auth_user'))
+console.log(localStorage.getItem('contososhoppingdemo_auth_user'))
 
 // 2. セッション検証の確認
 // src/lib/auth.ts の validateSession 関数をチェック
@@ -245,7 +245,7 @@ const { items, total, itemCount } = useCart()
 console.log('Cart state:', { items, total, itemCount })
 
 // 2. localStorage の確認
-console.log(localStorage.getItem('nextshopdemo_cart'))
+console.log(localStorage.getItem('contososhoppingdemo_cart'))
 
 // 3. エラーの確認
 try {

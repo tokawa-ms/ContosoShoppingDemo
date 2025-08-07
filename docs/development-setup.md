@@ -18,8 +18,8 @@
 ### 1. リポジトリのクローン
 
 ```bash
-git clone https://github.com/tokawa-ms/nextshopdemo.git
-cd nextshopdemo
+git clone https://github.com/tokawa-ms/ContosoShoppingDemo.git
+cd ContosoShoppingDemo
 ```
 
 ### 2. 依存関係のインストール
@@ -172,7 +172,7 @@ npm run build
 ```bash
 # .env.local（ローカル開発用）
 NEXT_PUBLIC_API_URL=http://localhost:3000/api
-DATABASE_URL=mongodb://localhost:27017/nextshopdemo
+DATABASE_URL=mongodb://localhost:27017/contososhoppingdemo
 JWT_SECRET=your-secret-key
 ```
 
