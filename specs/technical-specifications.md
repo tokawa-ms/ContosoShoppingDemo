@@ -81,7 +81,7 @@ GET  /api/orders/[id]   - 注文詳細取得
 
 ### Azure Cosmos DB
 
-- **データベース名**: nextshopdemo
+- **データベース名**: contososhoppingdemo
 - **パーティションキー戦略**: エンティティタイプ別
 
 ### データモデル
