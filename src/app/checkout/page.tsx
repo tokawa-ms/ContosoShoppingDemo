@@ -177,7 +177,7 @@ export default function CheckoutPage() {
                       className={`w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 ${
                         errors.zipCode ? 'border-red-300' : 'border-gray-300'
                       }`}
-                      placeholder="123-4567"
+                      placeholder="郵便番号を入力してください"
                     />
                     {errors.zipCode && <p className="text-red-500 text-xs mt-1">{errors.zipCode}</p>}
                   </div>
@@ -186,23 +186,16 @@ export default function CheckoutPage() {
                     <label htmlFor="prefecture" className="block text-sm font-medium text-gray-700 mb-1">
                       都道府県 <span className="text-red-500">*</span>
                     </label>
-                    <select
+                    <input
+                      type="text"
                       id="prefecture"
                       value={shippingAddress.prefecture}
                       onChange={(e) => setShippingAddress(prev => ({ ...prev, prefecture: e.target.value }))}
                       className={`w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 ${
                         errors.prefecture ? 'border-red-300' : 'border-gray-300'
                       }`}
-                    >
-                      <option value="">選択してください</option>
-                      <option value="東京都">東京都</option>
-                      <option value="大阪府">大阪府</option>
-                      <option value="神奈川県">神奈川県</option>
-                      <option value="愛知県">愛知県</option>
-                      <option value="埼玉県">埼玉県</option>
-                      <option value="千葉県">千葉県</option>
-                      <option value="その他">その他</option>
-                    </select>
+                      placeholder="都道府県を入力してください"
+                    />
                     {errors.prefecture && <p className="text-red-500 text-xs mt-1">{errors.prefecture}</p>}
                   </div>
 
@@ -218,7 +211,7 @@ export default function CheckoutPage() {
                       className={`w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 ${
                         errors.city ? 'border-red-300' : 'border-gray-300'
                       }`}
-                      placeholder="渋谷区"
+                      placeholder="市区町村を入力してください"
                     />
                     {errors.city && <p className="text-red-500 text-xs mt-1">{errors.city}</p>}
                   </div>
@@ -235,7 +228,7 @@ export default function CheckoutPage() {
                       className={`w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 ${
                         errors.phone ? 'border-red-300' : 'border-gray-300'
                       }`}
-                      placeholder="090-1234-5678"
+                      placeholder="電話番号を入力してください"
                     />
                     {errors.phone && <p className="text-red-500 text-xs mt-1">{errors.phone}</p>}
                   </div>
@@ -253,7 +246,7 @@ export default function CheckoutPage() {
                     className={`w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 ${
                       errors.addressLine1 ? 'border-red-300' : 'border-gray-300'
                     }`}
-                    placeholder="神南1-2-3"
+                    placeholder="住所を入力してください"
                   />
                   {errors.addressLine1 && <p className="text-red-500 text-xs mt-1">{errors.addressLine1}</p>}
                 </div>
@@ -268,7 +261,7 @@ export default function CheckoutPage() {
                     value={shippingAddress.addressLine2}
                     onChange={(e) => setShippingAddress(prev => ({ ...prev, addressLine2: e.target.value }))}
                     className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500"
-                    placeholder="○○マンション 101号室"
+                    placeholder="建物名・部屋番号を入力してください（任意）"
                   />
                 </div>
               </div>
@@ -323,7 +316,7 @@ export default function CheckoutPage() {
                         className={`w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 ${
                           errors.cardNumber ? 'border-red-300' : 'border-gray-300'
                         }`}
-                        placeholder="1234 5678 9012 3456"
+                        placeholder="カード番号を入力してください"
                       />
                       {errors.cardNumber && <p className="text-red-500 text-xs mt-1">{errors.cardNumber}</p>}
                     </div>
@@ -340,7 +333,7 @@ export default function CheckoutPage() {
                         className={`w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 ${
                           errors.expiryDate ? 'border-red-300' : 'border-gray-300'
                         }`}
-                        placeholder="MM/YY"
+                        placeholder="有効期限を入力してください"
                       />
                       {errors.expiryDate && <p className="text-red-500 text-xs mt-1">{errors.expiryDate}</p>}
                     </div>
@@ -357,7 +350,7 @@ export default function CheckoutPage() {
                         className={`w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 ${
                           errors.cvv ? 'border-red-300' : 'border-gray-300'
                         }`}
-                        placeholder="123"
+                        placeholder="セキュリティコードを入力してください"
                       />
                       {errors.cvv && <p className="text-red-500 text-xs mt-1">{errors.cvv}</p>}
                     </div>
@@ -374,7 +367,7 @@ export default function CheckoutPage() {
                         className={`w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 ${
                           errors.cardHolder ? 'border-red-300' : 'border-gray-300'
                         }`}
-                        placeholder="TARO YAMADA"
+                        placeholder="カード名義を入力してください"
                       />
                       {errors.cardHolder && <p className="text-red-500 text-xs mt-1">{errors.cardHolder}</p>}
                     </div>
