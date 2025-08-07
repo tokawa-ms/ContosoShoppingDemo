@@ -1,6 +1,6 @@
 # API 仕様
 
-Next Shop Demo は現在モック実装を使用していますが、将来的な API 統合に向けた設計を文書化します。
+Contoso Shopping Demo は現在モック実装を使用していますが、将来的な API 統合に向けた設計を文書化します。
 
 ## 概要
 
@@ -13,7 +13,7 @@ Next Shop Demo は現在モック実装を使用していますが、将来的�
 - **アーキテクチャ**: RESTful API
 - **データ形式**: JSON
 - **認証**: JWT Bearer Token
-- **ベースURL**: `https://api.nextshopdemo.com/v1`
+- **ベースURL**: `https://api.contososhoppingdemo.com/v1`
 
 ## 認証 API
 

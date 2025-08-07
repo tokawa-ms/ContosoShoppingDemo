@@ -198,7 +198,7 @@ describe("Cart Integration", () => {
 test("新規ユーザーが商品を購入する", async ({ page }) => {
   // 1. ホームページアクセス
   await page.goto("/");
-  await expect(page.locator("h1")).toContainText("Next Shop Demo");
+  await expect(page.locator("h1")).toContainText("Contoso Shopping Demo");
 
   // 2. 商品一覧ページ遷移
   await page.click('[data-testid="products-link"]');

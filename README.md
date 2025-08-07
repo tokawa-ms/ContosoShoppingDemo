@@ -8,7 +8,7 @@
 
 モダンな Web 技術を使用した **E コマースアプリケーション** のデモンストレーションプロジェクトです。Next.js 15、React 19、TypeScript、Tailwind CSS を使用して、現代的なショッピングサイトの実装例を提供します。
 
-![Next Shop Demo Screenshot](./public/images/demo-screenshot.png)
+![Contoso Shopping Demo Screenshot](./public/images/demo-screenshot.png)
 
 ## ✨ 主要機能
 
@@ -206,4 +206,4 @@ npm run lint -- --fix
 
 ---
 
-**Next Shop Demo** - モダンな Web 技術による E コマースアプリケーションのデモンストレーション
+**Contoso Shopping Demo** - モダンな Web 技術による E コマースアプリケーションのデモンストレーション

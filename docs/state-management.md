@@ -1,6 +1,6 @@
 # 状態管理
 
-Next Shop Demo では、React Context API を使用してアプリケーション全体の状態を管理しています。
+Contoso Shopping Demo では、React Context API を使用してアプリケーション全体の状態を管理しています。
 
 ## 状態管理アーキテクチャ
 

@@ -1,6 +1,6 @@
-# Next Shop Demo - ドキュメンテーション
+# Contoso Shopping Demo - ドキュメンテーション
 
-このディレクトリには、Next Shop Demoプロジェクトの包括的なドキュメントが含まれています。
+このディレクトリには、Contoso Shopping Demoプロジェクトの包括的なドキュメントが含まれています。
 
 ## ドキュメント一覧
 
