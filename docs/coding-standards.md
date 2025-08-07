@@ -1,6 +1,6 @@
 # コーディング規約
 
-Next Shop Demo プロジェクトのコーディング規約とベストプラクティスを定めます。
+Contoso Shopping Demo プロジェクトのコーディング規約とベストプラクティスを定めます。
 
 ## 全般的な原則
 
@@ -298,7 +298,7 @@ const API_ENDPOINTS = {
   CART: '/api/cart'
 } as const
 
-const CART_STORAGE_KEY = 'nextshopdemo_cart'
+const CART_STORAGE_KEY = 'contososhoppingdemo_cart'
 ```
 
 ### CSS クラス名

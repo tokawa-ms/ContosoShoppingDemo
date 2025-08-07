@@ -166,9 +166,9 @@ NODE_ENV=development
 **ステージング環境**:
 
 ```env
-NEXTAUTH_URL=https://nextshopdemo-staging.vercel.app
+NEXTAUTH_URL=https://contososhoppingdemo-staging.vercel.app
 NEXTAUTH_SECRET=staging-secret-key
-COSMOS_DB_ENDPOINT=https://nextshopdemo-staging.documents.azure.com:443/
+COSMOS_DB_ENDPOINT=https://contososhoppingdemo-staging.documents.azure.com:443/
 COSMOS_DB_KEY=${COSMOS_DB_STAGING_KEY}
 NODE_ENV=staging
 ```
@@ -176,9 +176,9 @@ NODE_ENV=staging
 **本番環境**:
 
 ```env
-NEXTAUTH_URL=https://nextshopdemo.vercel.app
+NEXTAUTH_URL=https://contososhoppingdemo.vercel.app
 NEXTAUTH_SECRET=${NEXTAUTH_SECRET_PRODUCTION}
-COSMOS_DB_ENDPOINT=https://nextshopdemo-prod.documents.azure.com:443/
+COSMOS_DB_ENDPOINT=https://contososhoppingdemo-prod.documents.azure.com:443/
 COSMOS_DB_KEY=${COSMOS_DB_PRODUCTION_KEY}
 NODE_ENV=production
 ```
@@ -264,7 +264,7 @@ const securityHeaders = [
 const corsHeaders = {
   "Access-Control-Allow-Origin":
     process.env.NODE_ENV === "production"
-      ? "https://nextshopdemo.vercel.app"
+      ? "https://contososhoppingdemo.vercel.app"
       : "*",
   "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
   "Access-Control-Allow-Headers": "Content-Type, Authorization",
