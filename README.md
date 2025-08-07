@@ -1,6 +1,6 @@
-# Next Shop Demo
+# Contoso Shopping Demo
 
-[![Build Status](https://img.shields.io/badge/build-passing-brightgreen)](https://github.com/tokawa-ms/nextshopdemo)
+[![Build Status](https://img.shields.io/badge/build-passing-brightgreen)](https://github.com/tokawa-ms/ContosoShoppingDemo)
 [![Next.js](https://img.shields.io/badge/Next.js-15.4.5-black)](https://nextjs.org/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.x-blue)](https://www.typescriptlang.org/)
 [![React](https://img.shields.io/badge/React-19.1.0-blue)](https://reactjs.org/)
@@ -31,8 +31,8 @@
 
 ```bash
 # リポジトリのクローン
-git clone https://github.com/tokawa-ms/nextshopdemo.git
-cd nextshopdemo
+git clone https://github.com/tokawa-ms/ContosoShoppingDemo.git
+cd ContosoShoppingDemo
 
 # 依存関係のインストール
 npm install
@@ -71,7 +71,7 @@ npm run dev
 ## 📁 プロジェクト構成
 
 ```
-nextshopdemo/
+ContosoShoppingDemo/
 ├── src/
 │   ├── app/                 # Next.js App Router（ページ）
 │   │   ├── page.tsx         # ホームページ
@@ -200,7 +200,7 @@ npm run lint -- --fix
 
 質問や問題がある場合は、以下の方法でサポートを受けられます：
 
-1. [GitHub Issues](https://github.com/tokawa-ms/nextshopdemo/issues) - バグ報告・機能要求
+1. [GitHub Issues](https://github.com/tokawa-ms/ContosoShoppingDemo/issues) - バグ報告・機能要求
 2. [ドキュメント](./docs/) - 包括的な技術文書
 3. [トラブルシューティング](./docs/troubleshooting.md) - よくある問題の解決方法
 
