@@ -27,7 +27,7 @@ interface CartContextType extends CartState {
 
 const CartContext = createContext<CartContextType | undefined>(undefined);
 
-const CART_STORAGE_KEY = 'nextshopdemo_cart';
+const CART_STORAGE_KEY = 'contososhoppingdemo_cart';
 
 function cartReducer(state: CartState, action: CartAction): CartState {
   switch (action.type) {

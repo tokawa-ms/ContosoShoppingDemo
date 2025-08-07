@@ -25,7 +25,7 @@ interface AuthContextType extends AuthState {
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
-const AUTH_STORAGE_KEY = 'nextshopdemo_auth_user';
+const AUTH_STORAGE_KEY = 'contososhoppingdemo_auth_user';
 
 function authReducer(state: AuthState, action: AuthAction): AuthState {
   switch (action.type) {
