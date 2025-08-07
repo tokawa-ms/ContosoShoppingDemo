@@ -8,7 +8,7 @@
 
 モダンな Web 技術を使用した **E コマースアプリケーション** のデモンストレーションプロジェクトです。Next.js 15、React 19、TypeScript、Tailwind CSS を使用して、現代的なショッピングサイトの実装例を提供します。
 
-![Contoso Shopping Demo Screenshot](./public/images/demo-screenshot.png)
+![Contoso Shopping Demo Screenshot](./docs/main_screenshot.png)
 
 ## ✨ 主要機能
 
@@ -17,7 +17,7 @@
 - 👤 **ユーザー認証**: ログイン・ログアウト機能（モック実装）
 - 📦 **注文処理**: チェックアウトフロー、注文履歴
 - 📱 **レスポンシブデザイン**: モバイル・タブレット・デスクトップ対応
-- 🎨 **モダンUI/UX**: Tailwind CSS による美しいデザイン
+- 🎨 **モダン UI/UX**: Tailwind CSS による美しいデザイン
 - ⚡ **高パフォーマンス**: Next.js 15 の最新機能を活用
 
 ## 🚀 クイックスタート
@@ -53,19 +53,22 @@ npm run dev
 ## 🛠️ 技術スタック
 
 ### フロントエンド
-- **[Next.js 15](https://nextjs.org/)**: React フレームワーク（App Router使用）
-- **[React 19](https://reactjs.org/)**: UI ライブラリ（Server Components対応）
+
+- **[Next.js 15](https://nextjs.org/)**: React フレームワーク（App Router 使用）
+- **[React 19](https://reactjs.org/)**: UI ライブラリ（Server Components 対応）
 - **[TypeScript](https://www.typescriptlang.org/)**: 静的型付け言語
-- **[Tailwind CSS 4](https://tailwindcss.com/)**: ユーティリティファーストCSSフレームワーク
+- **[Tailwind CSS 4](https://tailwindcss.com/)**: ユーティリティファースト CSS フレームワーク
 
 ### 状態管理
+
 - **React Context API**: グローバル状態管理
 - **useReducer**: 複雑な状態ロジック
 - **localStorage**: クライアントサイドデータ永続化
 
 ### 開発ツール
+
 - **ESLint**: コード品質チェック
-- **PostCSS**: CSS処理
+- **PostCSS**: CSS 処理
 - **Turbopack**: 高速バンドラー（開発時）
 
 ## 📁 プロジェクト構成
@@ -101,20 +104,24 @@ ContosoShoppingDemo/
 包括的なドキュメントが [docs/](./docs/) ディレクトリに用意されています：
 
 ### 基本ドキュメント
+
 - 📋 [アーキテクチャ概要](./docs/architecture.md) - システム設計と技術選択
 - 🔧 [開発環境セットアップ](./docs/development-setup.md) - 環境構築手順
 - 📁 [ディレクトリ構成](./docs/directory-structure.md) - プロジェクト構造
 
 ### 技術ドキュメント
-- 🔌 [API仕様](./docs/api-documentation.md) - APIエンドポイント詳細
-- 🧩 [コンポーネント設計](./docs/components.md) - Reactコンポーネント設計
-- 🔄 [状態管理](./docs/state-management.md) - Context APIによる状態管理
+
+- 🔌 [API 仕様](./docs/api-documentation.md) - API エンドポイント詳細
+- 🧩 [コンポーネント設計](./docs/components.md) - React コンポーネント設計
+- 🔄 [状態管理](./docs/state-management.md) - Context API による状態管理
 
 ### 運用ドキュメント
+
 - 🚀 [デプロイメント](./docs/deployment.md) - 本番環境デプロイ手順
 - 🔧 [トラブルシューティング](./docs/troubleshooting.md) - よくある問題の解決方法
 
 ### 開発ガイド
+
 - 🤝 [コントリビューションガイド](./docs/contributing.md) - 開発参加方法
 - 📏 [コーディング規約](./docs/coding-standards.md) - プロジェクトのコーディングルール
 
@@ -140,12 +147,14 @@ npm run lint -- --fix
 ## 🎯 主要ページ・機能
 
 ### ホームページ (`/`)
+
 - ヒーローセクション
 - 特集商品表示
 - カテゴリ一覧
 - 新着商品表示
 
 ### 商品関連 (`/products`)
+
 - 商品一覧表示
 - カテゴリフィルタリング
 - 検索機能
@@ -153,12 +162,14 @@ npm run lint -- --fix
 - 商品詳細表示 (`/products/[id]`)
 
 ### ショッピングカート (`/cart`)
+
 - カート内商品一覧
 - 数量変更・削除
 - 合計金額表示
 - チェックアウトへの遷移
 
-### 認証・注文 
+### 認証・注文
+
 - ログイン (`/login`)
 - チェックアウト (`/checkout`)
 - 注文完了 (`/checkout/success`)
